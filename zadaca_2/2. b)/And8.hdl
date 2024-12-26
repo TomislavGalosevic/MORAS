@@ -1,0 +1,15 @@
+CHIP And8{
+	IN in[8];
+	OUT out;
+
+	PARTS:
+
+And(a = in[0], b = in[1], out = a1);
+And(a = a1, b = in[2], out = a2);
+And(a = a2, b = in[3], out = a3);
+And(a = a3, b = in[4], out = a4);
+And(a = a4, b = in[5], out = a5);
+And(a = a5, b = in[6], out = a6);
+And(a = a6, b = in[7], out = out);
+
+}

@@ -1,0 +1,18 @@
+CHIP IsPalindrome{
+	IN in[16];
+	OUT out;
+
+	PARTS:
+
+Eq(a = in[0], b = in[15], out = eq1);
+Eq(a = in[1], b = in[14], out = eq2);
+Eq(a = in[2], b = in[13], out = eq3);
+Eq(a = in[3], b = in[12], out = eq4);
+Eq(a = in[4], b = in[11], out = eq5);
+Eq(a = in[5], b = in[10], out = eq6);
+Eq(a = in[6], b = in[9], out = eq7);
+Eq(a = in[7], b = in[8], out = eq8);
+
+// ako su svi jednaki onda 1, a inace 0
+And8(in[0] = eq1,in[1] = eq2,in[2] = eq3,in[3] = eq4,in[4] = eq5,in[5] = eq6,in[6] = eq7,in[7] = eq8, out = out);
+}
