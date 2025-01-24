@@ -1,0 +1,101 @@
+function BS.search 3
+
+push constant 0
+pop local 0
+
+push argument 1
+push constant 1
+sub
+pop local 1
+
+label LOOP_S
+push local 0
+push local 1
+gt
+if-goto ENDBS
+
+push local 0
+push local 1 
+add
+push constant 2
+call div 2
+pop local 2
+
+push local 2 
+push argument 0
+add
+
+pop pointer 1
+push that 0
+push argument 2
+eq
+if-goto FOUND
+
+push local 2 
+push argument 0
+add
+pop pointer 1
+push that 0
+push argument 2
+gt
+if-goto HIGHER
+
+goto LOWER
+
+
+label ENDBS
+push constant 1 
+neg
+return
+
+label FOUND
+push local 2 
+return
+
+label HIGHER
+push local 2
+push constant 1 
+sub 
+pop local 1
+goto LOOP_S
+
+label LOWER
+push local 2
+push constant 1 
+add 
+pop local 0
+goto LOOP_S
+
+
+
+
+
+
+
+function div 1
+
+push constant 0
+pop local 0
+
+label loop_s
+push argument 0
+push argument 1
+lt
+if-goto END
+///////////////////////////
+push argument 0
+push argument 1
+sub
+pop argument 0
+//////////////////////////
+push local 0
+push constant 1
+add
+pop local 0
+
+
+goto loop_s
+
+label END
+push local 0
+return
