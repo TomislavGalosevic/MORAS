@@ -1,0 +1,57 @@
+class vint {
+	field int length;
+	field Array vector;	
+
+	constructor vint new(int l) {
+		var int ll;
+		var Array a;
+		var int capacity;
+
+		let ll = l;
+		if (l < 0) {
+			let ll = 1;
+		}
+
+		let capacity = Math.pow(2, ll);
+
+		let vector = Array.new(capacity);
+		let length = capacity;
+
+		return this;
+	}
+
+	method int len() {
+		return length;
+	}
+
+	method void set(int key, int value) {
+		let vector[key] = value;
+
+		return;
+	}
+
+	method int get(int key) {
+		return vector[key];
+	}
+
+	function bool is_eq(vint a, vint b) {
+		var int ln;
+		var int i;
+
+		if (~(a.len() = b.len())) {
+			return 0;
+		}
+
+		let ln = a.len();
+
+		while (i < ln) {
+			if (~(a.get(i) = b.get(i))) {
+				return 0;
+			}
+
+			let i = i + 1;
+		}
+
+		return 1;
+	}
+}

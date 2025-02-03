@@ -1,0 +1,58 @@
+class QuickSort {
+
+    function void swap(Array A, int i, int j) {
+        var int temp;
+
+        let temp = A[i];
+        let A[i] = A[j];
+        let A[j] = temp;
+
+        return;
+    }
+
+    function void print(Array A, int n) {
+        var int i;
+
+        while (i < n) {
+            do Output.printInt(A[i]);
+            do Output.printString(" ");
+            let i = i + 1;
+        }
+
+        return;
+    }
+
+    function int partition(Array A, int l, int r) {
+        var int pivot, i, j;
+
+        let pivot = A[l];
+        
+        let i = l;
+        let j = l + 1;
+
+        while ((j < r) | (j = r)) {
+            if ((A[j] < pivot) | (A[j] = pivot)) {
+                let i = i + 1;
+                do QuickSort.swap(A, i, j);
+            }
+
+            let j = j + 1;
+        }
+
+        do QuickSort.swap(A, i, l);
+
+        return i;
+    }
+
+    function void qsort(Array A, int l, int r) {
+        var int q;
+
+        if (l < r) {
+            let q = QuickSort.partition(A, l, r);
+            do QuickSort.qsort(A, l, q - 1);
+            do QuickSort.qsort(A, q + 1, r);
+        }
+
+        return;
+    }
+}
